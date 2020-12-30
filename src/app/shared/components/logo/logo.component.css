@@ -1,0 +1,15 @@
+.logo h1 .github{
+    display: inline-block;
+    font-family: 'Poppins';
+    font-weight: bold;
+    margin-right: 0.3rem;
+    color: #282538;
+    font-size: 1.5rem;
+}
+
+.logo h1 .jobs {
+    display: inline-block;
+    font-family: 'Poppins';
+    font-weight: 300;
+    font-size: 1.5rem;
+}
