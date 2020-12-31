@@ -17,6 +17,10 @@
     </mat-radio-group>
 </section>
 
+<section class="loader-container" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+</section>
+
 <section class="jobs-container">
     <app-job *ngFor="let job of jobs" [job]="job"></app-job>
 </section>
