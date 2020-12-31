@@ -16,6 +16,7 @@
 /* Estilos de la sección de ubicación */
 .location-container{
     margin-top: 2.2rem;
+    position: relative;
 }
 
 
@@ -28,4 +29,37 @@
     line-height: 1rem;
     color: #B9BDCF;
     text-transform: uppercase;
+}
+
+/* Estilos del input de Location */
+.location-container input{
+    width: 85%;
+    height: 40px;
+    min-width: 250px;
+    border: none;
+    padding-left: 40px;
+}
+
+/* Estilos del focus del input */
+
+.location-container input:focus{
+    border: none;
+    border-style: none;
+    outline: none;
+}
+
+/* Estilos de placeholder del input */
+.location-container input::placeholder{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+/* Estilos del icono de la ubicación */
+.location-container .public-icon{
+    position: absolute;
+    top: 40px;
+    left: 8px;
+    color: #B9BDCF;
 }
