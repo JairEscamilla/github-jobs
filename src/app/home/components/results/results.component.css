@@ -63,3 +63,19 @@
     left: 8px;
     color: #B9BDCF;
 }
+
+/* Estilos de cities container */
+.cities-container{
+    margin-top: 2rem;
+    color: #334680;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.cities-container .cities{
+    display: block;
+    margin-bottom: 1.2rem;
+}
