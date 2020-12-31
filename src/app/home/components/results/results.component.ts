@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Job } from 'src/app/models/job.model';
 import { JobsService } from '../../../core/services/jobs.service';
 
 @Component({
@@ -9,22 +10,18 @@ import { JobsService } from '../../../core/services/jobs.service';
 export class ResultsComponent implements OnInit {
 
   fullTime: boolean = false;
+  jobs: Job[] = [];
 
   constructor(
     private jobsService: JobsService
   ) { }
 
   ngOnInit(): void {
-    this.jobsService.getJobs().subscribe(response => {
-      console.log("Here");
-      
-      console.log(response);
-      
-    }, error => {
+    this.jobsService.getJobs().subscribe((response) => {
+      this.jobs = response;
+    }, (error) => {
       console.log("Ha ocurrido un error");
-      
       console.log(error);
-      
     })
   }
 

@@ -16,3 +16,7 @@
         <mat-radio-button class="cities" value="berlin">Berlín</mat-radio-button>
     </mat-radio-group>
 </section>
+
+<section class="jobs-container">
+    <app-job *ngFor="let job of jobs" [job]="job"></app-job>
+</section>

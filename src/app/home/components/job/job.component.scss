@@ -1,0 +1,45 @@
+.card{
+    width: 85%;
+    background-color: white;
+    padding: 1.5em;
+    display: flex;
+    margin-top: 1em;
+}
+
+.crop-image{
+  display: block;
+  height: 90px;
+  width: 90px;
+}
+
+.crop-image img{
+  object-fit: contain;
+  height: 90px;
+  width: 90px;
+  object-position: center;
+}
+
+.info-container{
+  margin-left: 1rem;
+}
+
+.info-container .company, .info-container .title{
+  display: block;
+}
+
+.info-container .company{
+  color: #334680;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 0.8rem;
+  line-height: 14px;
+}
+
+.info-container .title {
+  color: #334680;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 19px;
+  margin-top: 0.6rem;
+}

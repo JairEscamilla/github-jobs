@@ -8,10 +8,11 @@ import { SearchComponent } from './components/search/search.component';
 import { MaterialModule } from '../material/material.module';
 import { ResultsComponent } from './components/results/results.component';
 import { FormsModule } from '@angular/forms';
+import { JobComponent } from './components/job/job.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, SearchComponent, ResultsComponent],
+  declarations: [HomeComponent, SearchComponent, ResultsComponent, JobComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
