@@ -6,15 +6,18 @@ import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { SearchComponent } from './components/search/search.component';
 import { MaterialModule } from '../material/material.module';
+import { ResultsComponent } from './components/results/results.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [HomeComponent, SearchComponent],
+  declarations: [HomeComponent, SearchComponent, ResultsComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
     SharedModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class HomeModule { }

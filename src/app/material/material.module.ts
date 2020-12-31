@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -8,10 +9,12 @@ import { MatIconModule } from '@angular/material/icon';
   declarations: [],
   imports: [
     CommonModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule
   ],
   exports: [
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule { }

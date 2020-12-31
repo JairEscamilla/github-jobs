@@ -1,0 +1,31 @@
+/* Estilos del contenedor de boton de full ime */
+.fullTime-container{
+    margin-top: 2rem;
+}
+
+/* Estilos del botón de full time */
+.example-margin{
+    color: #334680;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+/* Estilos de la sección de ubicación */
+.location-container{
+    margin-top: 2.2rem;
+}
+
+
+/* Estilos del label de Location */
+.location-container h3{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 0.9rem;
+    line-height: 1rem;
+    color: #B9BDCF;
+    text-transform: uppercase;
+}
