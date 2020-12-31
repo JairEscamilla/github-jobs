@@ -9,16 +9,22 @@ import { MaterialModule } from '../material/material.module';
 import { ResultsComponent } from './components/results/results.component';
 import { FormsModule } from '@angular/forms';
 import { JobComponent } from './components/job/job.component';
-
+import { TimeagoModule } from 'ngx-timeago';
 
 @NgModule({
-  declarations: [HomeComponent, SearchComponent, ResultsComponent, JobComponent],
+  declarations: [
+    HomeComponent, 
+    SearchComponent, 
+    ResultsComponent, 
+    JobComponent,
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     SharedModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    TimeagoModule.forRoot()
   ]
 })
 export class HomeModule { }

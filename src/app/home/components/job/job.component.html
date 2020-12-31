@@ -1,6 +1,8 @@
 <div class="card">
+    
     <div class="crop-image">
-        <img [src]="job.company_logo" alt="Logo de la compañía">
+        <img *ngIf="job.company_logo" [src]="job.company_logo" alt="Logo de la compañía">
+        <img *ngIf="!job.company_logo" src="../../../../assets/images/image-not-found.jpg" alt="Logo no encontrado">
     </div>
 
     <div class="info-container">
@@ -10,5 +12,18 @@
         <span class="title">
             {{ job.title }}
         </span>
+        <span class="type" *ngIf="job.type == 'Full Time'">
+            {{ job.type }}
+        </span>
+        <div class="location-and-created-at">
+            <span class="location">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">public</mat-icon>
+                {{ job.location }}
+            </span>
+            <span class="created_at">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">query_builder</mat-icon>
+                {{ job.created_at | timeago}}
+            </span>
+        </div>
     </div>
 </div>
