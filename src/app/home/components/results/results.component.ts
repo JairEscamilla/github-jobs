@@ -11,6 +11,8 @@ export class ResultsComponent implements OnInit {
 
   fullTime: boolean = false;
   jobs: Job[] = [];
+  currentPageJobs: Job[] = [];
+  currentPage: number = 0;
   loading: boolean = true;
 
   constructor(
@@ -18,13 +20,23 @@ export class ResultsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getJobs();
+  }
+
+  getJobs(){
     this.jobsService.getJobs().subscribe((response) => {
       this.jobs = response;
-      this.loading = false;
+      this.sliceJobs();
     }, (error) => {
       console.log("Something went wrong):");
       console.log(error);
     })
+  }
+
+  sliceJobs(){
+    this.currentPageJobs = this.jobs.slice(this.currentPage, this.currentPage + 10);
+    this.currentPage = this.currentPage + 10;
+    this.loading = false;
   }
 
 }
