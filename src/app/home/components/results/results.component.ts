@@ -30,6 +30,8 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   locationModel: string = "";
 
+  city: string = "";
+
 
 
   // MatPaginator Inputs
@@ -65,6 +67,9 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.loadingSub.unsubscribe();
   }
 
+  filterByCity(){
+    this.jobsService.searchByLocation(this.city, this.fullTime);
+  }
 
 
   handleLocationChanges(){
@@ -94,8 +99,9 @@ export class ResultsComponent implements OnInit, OnDestroy {
     });
 
     return pageEvent;
-
   }
+
+
 
 
 }

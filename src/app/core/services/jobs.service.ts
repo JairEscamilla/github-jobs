@@ -47,6 +47,7 @@ export class JobsService {
     );
   }
 
+
   setJobs(jobs: Job[]){
     this.jobs = jobs;
     this.jobsObs.next(this.jobs);
