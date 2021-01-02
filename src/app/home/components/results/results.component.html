@@ -29,6 +29,9 @@
 </section>
 
 <section class="jobs-container" *ngIf="!loading">
+    <h3 *ngIf="currentPageJobs.length == 0">
+        No results found):
+    </h3>
     <app-job *ngFor="let job of currentPageJobs" [job]="job"></app-job>
 </section>
 
