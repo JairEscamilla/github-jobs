@@ -24,3 +24,13 @@
 <section class="jobs-container">
     <app-job *ngFor="let job of currentPageJobs" [job]="job"></app-job>
 </section>
+
+<section class="paginator">
+    <mat-paginator 
+        [length]="length" 
+        [pageSize]="pageSize" 
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="pageEvent = pageChange($event)"
+    >
+    </mat-paginator>
+</section>

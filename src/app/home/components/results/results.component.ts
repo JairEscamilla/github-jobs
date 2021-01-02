@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Job } from 'src/app/models/job.model';
 import { JobsService } from '../../../core/services/jobs.service';
+import { PageEvent } from '@angular/material/paginator';
+
+
 
 @Component({
   selector: 'app-results',
@@ -12,8 +15,14 @@ export class ResultsComponent implements OnInit {
   fullTime: boolean = false;
   jobs: Job[] = [];
   currentPageJobs: Job[] = [];
-  currentPage: number = 0;
   loading: boolean = true;
+
+
+  // MatPaginator Inputs
+  length: number = 0;
+  pageSize: number = 10;
+  pageSizeOptions: number[] = [5, 10, 20];
+  pageEvent: PageEvent;
 
   constructor(
     private jobsService: JobsService
@@ -26,17 +35,24 @@ export class ResultsComponent implements OnInit {
   getJobs(){
     this.jobsService.getJobs().subscribe((response) => {
       this.jobs = response;
-      this.sliceJobs();
+      this.length = this.jobs.length;
+      this.sliceJobs(0, 10);
     }, (error) => {
       console.log("Something went wrong):");
       console.log(error);
     })
   }
 
-  sliceJobs(){
-    this.currentPageJobs = this.jobs.slice(this.currentPage, this.currentPage + 10);
-    this.currentPage = this.currentPage + 10;
+  sliceJobs(pageIndex: number, pageSize: number){
+    if(pageIndex === 0)
+      this.currentPageJobs = this.jobs.slice(pageIndex, pageIndex + pageSize);
+    else 
+      this.currentPageJobs = this.jobs.slice(pageIndex + pageSize - 1, pageIndex + 2*pageSize - 1);
     this.loading = false;
+  }
+
+  public pageChange(pageEvent: PageEvent){
+    this.sliceJobs(pageEvent.pageIndex, pageEvent.pageSize);
   }
 
 }
