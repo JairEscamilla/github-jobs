@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Job } from 'src/app/models/job.model';
 import { JobsService } from '../../../core/services/jobs.service';
 import { PageEvent } from '@angular/material/paginator';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 
 
@@ -11,12 +11,17 @@ import { Observable } from 'rxjs';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css']
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent implements OnInit, OnDestroy {
 
   fullTime: boolean = true;
 
   jobs$: Observable<Job[]>;
+  jobs: Job[] = [];
+  jobsSub: Subscription;
+
   loading$: Observable<boolean>;
+  loadingSub: Subscription;
+  loading: boolean = true;
 
   locationModel: string = "";
 
@@ -34,21 +39,29 @@ export class ResultsComponent implements OnInit {
     private jobsService: JobsService
   ) { 
     this.loading$ = this.jobsService.loadingObs$;
-    this.getJobs();
-  }
-
-  ngOnInit(): void {
-  }
-
-  getJobs(){
     this.jobs$ = this.jobsService.jobsObs$;
     this.jobsService.getJobs();
   }
 
+  ngOnInit(): void {
+    this.jobsSub = this.jobs$.subscribe((jobs)=> {
+      this.jobs = jobs;
+    })
+
+    this.loadingSub = this.loading$.subscribe((result) => {
+      this.loading = result;
+    })
+  }
+
+  ngOnDestroy(){
+    this.jobsSub.unsubscribe();
+    this.loadingSub.unsubscribe();
+  }
+
+
 
   handleLocationChanges(){
     this.jobsService.searchByLocation(this.locationModel, this.fullTime);
-    
   }
 
   // sliceJobs(pageIndex: number, pageSize: number){

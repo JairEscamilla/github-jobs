@@ -24,11 +24,11 @@
     </mat-radio-group>
 </section>
 
-<section class="loader-container" *ngIf="loading$ | async">
+<section class="loader-container" *ngIf="loading">
     <mat-spinner></mat-spinner>
 </section>
 
-<section class="jobs-container" *ngIf="(jobs$ | async) as jobs">
+<section class="jobs-container" *ngIf="!loading">
     <app-job *ngFor="let job of jobs" [job]="job"></app-job>
 </section>
 
