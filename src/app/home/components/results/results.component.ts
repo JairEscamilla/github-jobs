@@ -14,9 +14,9 @@ import { Observable } from 'rxjs';
 export class ResultsComponent implements OnInit {
 
   fullTime: boolean = true;
-  loading: boolean = false;
 
   jobs$: Observable<Job[]>;
+  loading$: Observable<boolean>;
 
 
   // MatPaginator Inputs
@@ -30,6 +30,7 @@ export class ResultsComponent implements OnInit {
   constructor(
     private jobsService: JobsService
   ) { 
+    this.loading$ = this.jobsService.loadingObs$;
     this.getJobs();
   }
 

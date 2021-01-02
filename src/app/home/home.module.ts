@@ -7,7 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { SearchComponent } from './components/search/search.component';
 import { MaterialModule } from '../material/material.module';
 import { ResultsComponent } from './components/results/results.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JobComponent } from './components/job/job.component';
 import { TimeagoModule } from 'ngx-timeago';
 
@@ -24,7 +24,8 @@ import { TimeagoModule } from 'ngx-timeago';
     SharedModule,
     MaterialModule,
     FormsModule,
-    TimeagoModule.forRoot()
+    TimeagoModule.forRoot(),
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }

@@ -13,13 +13,17 @@ export class JobsService {
   private jobs: Job[] = []; // Declaro un array de elementos que serán los que se van a consultar de la API
   private jobsObs = new BehaviorSubject<Job[]>([]); // Behaviour subject para tener un observable de los trabajos
 
+  private loadingObs = new BehaviorSubject<boolean>(true);
+
   jobsObs$ = this.jobsObs.asObservable();
+  loadingObs$ = this.loadingObs.asObservable();
 
   constructor(
     private http: HttpClient
   ) { }
 
   getJobs(){
+    this.loadingObs.next(true);
     this.http.get<Job[]>(`${environment.api}`).pipe( // Aplico un pipe para capturar errores en caso de haberlos
       catchError(error => {
         return throwError('Ups, something went wrong):'); // Lanzo el error
@@ -32,7 +36,8 @@ export class JobsService {
 
 
   searchJobsByKeyWord(search: string){
-    this.http.get<Job[]>(`${environment.api}?search=${search}`).subscribe(
+    this.loadingObs.next(true);
+    this.http.get<Job[]>(`${environment.api}search=${search}`).subscribe(
       (response) => this.setJobs(response), 
       (error) => this.handleError(error)
     );
@@ -41,6 +46,7 @@ export class JobsService {
   setJobs(jobs: Job[]){
     this.jobs = jobs;
     this.jobsObs.next(this.jobs);
+    this.loadingObs.next(false);
   }
 
   handleError(error: any){

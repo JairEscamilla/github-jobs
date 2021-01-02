@@ -1,7 +1,13 @@
 <div class="search-container">
-    <form>
+    <form [formGroup]="form" (ngSubmit)="searchJobs($event)">
         <mat-icon aria-hidden="false" aria-label="Example home icon" class="work-icon">work_outline</mat-icon>
-        <input name="search" type="text" placeholder="Title, companies, experti..." autocomplete="off">
-        <button type="submit">Search</button>
+        <input 
+            name="search" 
+            type="text" 
+            placeholder="Title, companies, experti..." 
+            autocomplete="off" 
+            formControlName="search"
+        >
+        <button type="submit" type="submit">Search</button>
     </form>
 </div>
