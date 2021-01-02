@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 import { JobsService } from '../../../core/services/jobs.service';
 
 @Component({
@@ -32,7 +33,8 @@ export class SearchComponent implements OnInit {
     event.preventDefault();
     if(this.form.valid){
       const value = this.form.value;
-      this.jobsService.searchJobsByKeyWord(value.search);
+      const url = `${environment.api}search=${value.search}`;
+      this.jobsService.requestServer(url);
     }
     
   }

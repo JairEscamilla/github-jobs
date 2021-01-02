@@ -59,6 +59,15 @@ export class JobsService {
     );
   }
 
+  requestServer(url: string){
+    this.loadingObs.next(true);
+
+    this.http.get<Job[]>(url).subscribe(
+      (response) => this.setJobs(response),
+      (error) => this.handleError(error)
+    );
+  }
+
   setJobs(jobs: Job[]){
     this.jobs = jobs;
     this.jobsObs.next(this.jobs);
