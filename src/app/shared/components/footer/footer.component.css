@@ -1,0 +1,12 @@
+footer{
+    margin-top: 2rem;
+    text-align: center;
+}
+
+footer h5{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 0.875rem;
+    line-height: 17px;
+    color: #B9BDCF;
+}

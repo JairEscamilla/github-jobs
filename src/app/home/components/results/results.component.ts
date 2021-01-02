@@ -100,8 +100,5 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
     return pageEvent;
   }
-
-
-
-
+  
 }
