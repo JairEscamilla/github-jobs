@@ -50,18 +50,18 @@ export class ResultsComponent implements OnInit {
   //   this.loading = false;
   // }
 
-  public pageChange(pageEvent: PageEvent): PageEvent{
-    this.loading = true;
-    this.sliceJobs(pageEvent.pageIndex, pageEvent.pageSize);
-    window.scroll({
-      top: 550,
-      left: 0,
-      behavior: 'smooth',
-    });
+  // public pageChange(pageEvent: PageEvent): PageEvent{
+  //   this.loading = true;
+  //   this.sliceJobs(pageEvent.pageIndex, pageEvent.pageSize);
+  //   window.scroll({
+  //     top: 550,
+  //     left: 0,
+  //     behavior: 'smooth',
+  //   });
 
-    return pageEvent;
+  //   return pageEvent;
 
-  }
+  // }
 
   fullTimeChange(){
   }

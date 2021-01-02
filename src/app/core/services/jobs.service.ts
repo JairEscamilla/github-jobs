@@ -24,14 +24,28 @@ export class JobsService {
       catchError(error => {
         return throwError('Ups, something went wrong):'); // Lanzo el error
       })
-    ).subscribe((response) => { // Me suscribo a la respuesta del Observable de la consulta get
-      this.jobs = response; 
-      
-      this.jobsObs.next(this.jobs); // Emito el arreglo de trabajos
-    }), (error) => { // Callback en caso de tener un error
-      console.log("Something went wrong):");
-      console.log(error);
-    };
+    ).subscribe(
+      (response) => this.setJobs(response), 
+      (error) => this.handleError(error)
+    );
+  }
+
+
+  searchJobsByKeyWord(search: string){
+    this.http.get<Job[]>(`${environment.api}?search=${search}`).subscribe(
+      (response) => this.setJobs(response), 
+      (error) => this.handleError(error)
+    );
+  }
+
+  setJobs(jobs: Job[]){
+    this.jobs = jobs;
+    this.jobsObs.next(this.jobs);
+  }
+
+  handleError(error: any){
+    console.log("Something went wrong):");
+    console.log(error);
   }
 
 }
