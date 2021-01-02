@@ -22,6 +22,8 @@ export class ResultsComponent implements OnInit {
   length: number = 0;
   pageSize: number = 10;
   pageSizeOptions: number[] = [5, 10, 20];
+
+  // MatPaginator Output
   pageEvent: PageEvent;
 
   constructor(
@@ -52,7 +54,14 @@ export class ResultsComponent implements OnInit {
   }
 
   public pageChange(pageEvent: PageEvent){
+    this.loading = true;
     this.sliceJobs(pageEvent.pageIndex, pageEvent.pageSize);
+    window.scroll({
+      top: 550,
+      left: 0,
+      behavior: 'smooth',
+    });
+
   }
 
 }

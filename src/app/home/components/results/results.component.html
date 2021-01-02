@@ -21,7 +21,7 @@
     <mat-spinner></mat-spinner>
 </section>
 
-<section class="jobs-container">
+<section class="jobs-container" *ngIf="!loading">
     <app-job *ngFor="let job of currentPageJobs" [job]="job"></app-job>
 </section>
 
