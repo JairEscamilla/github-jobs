@@ -18,6 +18,9 @@ export class ResultsComponent implements OnInit {
   jobs$: Observable<Job[]>;
   loading$: Observable<boolean>;
 
+  locationModel: string = "";
+
+
 
   // MatPaginator Inputs
   length: number = 0;
@@ -42,6 +45,12 @@ export class ResultsComponent implements OnInit {
     this.jobsService.getJobs();
   }
 
+
+  handleLocationChanges(){
+    this.jobsService.searchByLocation(this.locationModel, this.fullTime);
+    
+  }
+
   // sliceJobs(pageIndex: number, pageSize: number){
   //   if(pageIndex === 0)
   //     this.currentPageJobs = this.jobs.slice(pageIndex, pageIndex + pageSize);
@@ -64,7 +73,5 @@ export class ResultsComponent implements OnInit {
 
   // }
 
-  fullTimeChange(){
-  }
 
 }

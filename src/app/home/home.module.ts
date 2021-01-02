@@ -25,7 +25,8 @@ import { TimeagoModule } from 'ngx-timeago';
     MaterialModule,
     FormsModule,
     TimeagoModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class HomeModule { }

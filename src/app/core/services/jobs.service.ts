@@ -43,6 +43,22 @@ export class JobsService {
     );
   }
 
+  searchByLocation(location: string = "", fullTime: boolean){
+    this.loadingObs.next(true);
+    
+    this.http.get<Job[]>(`${environment.api}full_time=${fullTime}&location=${location}`).subscribe(
+      (response) => {
+        this.setJobs(response);
+        if(!fullTime){
+          this.jobs = this.jobs.filter(job => job.type !== "Full Time");
+          this.jobsObs.next(this.jobs);
+        }
+        
+      },
+      (error) => this.handleError(error)
+    );
+  }
+
   setJobs(jobs: Job[]){
     this.jobs = jobs;
     this.jobsObs.next(this.jobs);
