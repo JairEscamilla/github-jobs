@@ -1,5 +1,12 @@
 <section class="fullTime-container">
-    <mat-checkbox class="example-margin" [(ngModel)]="fullTime" color="primary">Full time</mat-checkbox>
+    <mat-checkbox 
+        class="example-margin" 
+        [(ngModel)]="fullTime" 
+        (ngModelChange)="fullTimeChange()"
+        color="primary"
+    >
+        Full time
+    </mat-checkbox>
 </section>
 
 <section class="location-container">
@@ -21,11 +28,12 @@
     <mat-spinner></mat-spinner>
 </section>
 
-<section class="jobs-container" *ngIf="!loading">
-    <app-job *ngFor="let job of currentPageJobs" [job]="job"></app-job>
+<section class="jobs-container" *ngIf="(jobs$ | async) as jobs">
+    {{ jobs.length }}
+    <app-job *ngFor="let job of jobs" [job]="job"></app-job>
 </section>
 
-<section class="paginator">
+<!-- <section class="paginator">
     <mat-paginator 
         [length]="length" 
         [pageSize]="pageSize" 
@@ -33,4 +41,4 @@
         (page)="pageEvent = pageChange($event)"
     >
     </mat-paginator>
-</section>
+</section> -->

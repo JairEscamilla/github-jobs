@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Job } from 'src/app/models/job.model';
 import { JobsService } from '../../../core/services/jobs.service';
 import { PageEvent } from '@angular/material/paginator';
+import { Observable } from 'rxjs';
 
 
 
@@ -12,46 +13,42 @@ import { PageEvent } from '@angular/material/paginator';
 })
 export class ResultsComponent implements OnInit {
 
-  fullTime: boolean = false;
-  jobs: Job[] = [];
-  currentPageJobs: Job[] = [];
-  loading: boolean = true;
+  fullTime: boolean = true;
+  loading: boolean = false;
+
+  jobs$: Observable<Job[]>;
 
 
   // MatPaginator Inputs
   length: number = 0;
-  pageSize: number = 10;
-  pageSizeOptions: number[] = [5, 10, 20];
+  pageSize: number = 5;
+  pageSizeOptions: number[] = [5];
 
   // MatPaginator Output
   pageEvent: PageEvent;
 
   constructor(
     private jobsService: JobsService
-  ) { }
-
-  ngOnInit(): void {
+  ) { 
     this.getJobs();
   }
 
-  getJobs(){
-    this.jobsService.getJobs().subscribe((response) => {
-      this.jobs = response;
-      this.length = this.jobs.length;
-      this.sliceJobs(0, 10);
-    }, (error) => {
-      console.log("Something went wrong):");
-      console.log(error);
-    })
+  ngOnInit(): void {
   }
 
-  sliceJobs(pageIndex: number, pageSize: number){
-    if(pageIndex === 0)
-      this.currentPageJobs = this.jobs.slice(pageIndex, pageIndex + pageSize);
-    else 
-      this.currentPageJobs = this.jobs.slice(pageIndex + pageSize - 1, pageIndex + 2*pageSize - 1);
-    this.loading = false;
+  getJobs(){
+    this.jobs$ = this.jobsService.jobsObs$;
+    this.jobsService.getJobs();
   }
+
+  // sliceJobs(pageIndex: number, pageSize: number){
+  //   if(pageIndex === 0)
+  //     this.currentPageJobs = this.jobs.slice(pageIndex, pageIndex + pageSize);
+  //   else 
+  //     this.currentPageJobs = this.jobs.slice(pageIndex + pageSize - 1, pageIndex + 2*pageSize - 1);
+    
+  //   this.loading = false;
+  // }
 
   public pageChange(pageEvent: PageEvent): PageEvent{
     this.loading = true;
@@ -64,6 +61,9 @@ export class ResultsComponent implements OnInit {
 
     return pageEvent;
 
+  }
+
+  fullTimeChange(){
   }
 
 }
