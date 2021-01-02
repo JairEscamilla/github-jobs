@@ -3,6 +3,7 @@ import { Job } from 'src/app/models/job.model';
 import { JobsService } from '../../../core/services/jobs.service';
 import { PageEvent } from '@angular/material/paginator';
 import { Observable, Subscription } from 'rxjs';
+import { environment } from '../../../../environments/environment.prod';
 
 
 
@@ -40,7 +41,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
   ) { 
     this.loading$ = this.jobsService.loadingObs$;
     this.jobs$ = this.jobsService.jobsObs$;
-    this.jobsService.getJobs();
+    this.jobsService.requestServer(environment.api);
   }
 
   ngOnInit(): void {

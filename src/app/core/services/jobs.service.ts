@@ -22,26 +22,6 @@ export class JobsService {
     private http: HttpClient
   ) { }
 
-  getJobs(){
-    this.loadingObs.next(true);
-    this.http.get<Job[]>(`${environment.api}`).pipe( // Aplico un pipe para capturar errores en caso de haberlos
-      catchError(error => {
-        return throwError('Ups, something went wrong):'); // Lanzo el error
-      })
-    ).subscribe(
-      (response) => this.setJobs(response), 
-      (error) => this.handleError(error)
-    );
-  }
-
-
-  searchJobsByKeyWord(search: string){
-    this.loadingObs.next(true);
-    this.http.get<Job[]>(`${environment.api}search=${search}`).subscribe(
-      (response) => this.setJobs(response), 
-      (error) => this.handleError(error)
-    );
-  }
 
   searchByLocation(location: string = "", fullTime: boolean){
     this.loadingObs.next(true);
@@ -61,7 +41,6 @@ export class JobsService {
 
   requestServer(url: string){
     this.loadingObs.next(true);
-
     this.http.get<Job[]>(url).subscribe(
       (response) => this.setJobs(response),
       (error) => this.handleError(error)
