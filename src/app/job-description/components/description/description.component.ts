@@ -15,19 +15,33 @@ export class DescriptionComponent implements OnInit {
 
   job$: Observable<Job>;    
   job: Job;
+  jobId: string;
+  loading: boolean = true;
 
   constructor(
     private jobService: JobsService,
     private route: ActivatedRoute,
-  ) { }
+  ) { 
+    this.route.params.subscribe((params: Params) => {
+      this.jobId = params.id;
+    });
+  }
 
   ngOnInit(): void {
-    this.job$ = this.route.params.pipe(
-      switchMap((params: Params) => {
-        return this.jobService.getJob(params.id);
-      })
-    )
+    
+   
+    this.jobService.getJob(this.jobId).subscribe(job => {
+      this.job = job;
+      this.loading = false;
+    })
+
+    // this.job$ = this.route.params.pipe(
+    //   switchMap((params: Params) => {
+    //     return this.jobService.getJob(params.id);
+    //   })
+    // )
 
   }
+
 
 }

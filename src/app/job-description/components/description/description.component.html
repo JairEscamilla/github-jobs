@@ -9,7 +9,11 @@
     </a>
 </div>
 
-<div *ngIf="(job$ | async) as job">
+<div class="spinner-container" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="!loading">
     <section class="how-to-apply">
         <span>how to apply</span>
         <div class="apply-container" [innerHTML]="job.how_to_apply | sanitize">
