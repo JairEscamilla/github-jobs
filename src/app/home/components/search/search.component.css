@@ -91,18 +91,49 @@
 
 @media screen and (min-width: 450px){
     .search-container form button {
-        right: 7.5%;
+        right: 7%;
+    }
+    .search-container form .work-icon{
+        left: 9%;
+    }
+
+    .search-container form input{
+        padding-left: 50px;
     }
 }
 
 @media screen and (min-width: 550px){
     .search-container form button {
-        right: 9%;
+        right: 8%;
+    }   
+}
+
+@media screen and (min-width: 700px){
+    .search-container form button{
+        right: 8%;
+    }
+    .search-container form .work-icon{
+        left: 10%;
+    }
+    .search-container form input{
+        padding-left: 60px;
     }
 }
 
 @media screen and (min-width: 850px){
     .search-container form button{
-        right: 10%;
+        right: 8.5%;
+    }
+    .search-container form .work-icon{
+        left: 10%;
+    }
+    .search-container form input{
+        padding-left: 60px;
+    }
+}
+
+@media screen and (min-width: 1160px){
+    .search-container form button{
+        right: 9.5%;
     }
 }
