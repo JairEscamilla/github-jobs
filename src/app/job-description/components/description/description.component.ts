@@ -13,7 +13,8 @@ import { switchMap } from 'rxjs/operators';
 })
 export class DescriptionComponent implements OnInit {
 
-  job$: Observable<Job>;
+  job$: Observable<Job>;    
+  job: Job;
 
   constructor(
     private jobService: JobsService,
@@ -26,6 +27,7 @@ export class DescriptionComponent implements OnInit {
         return this.jobService.getJob(params.id);
       })
     )
+
   }
 
 }

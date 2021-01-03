@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LogoComponent } from './components/logo/logo.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SanitizePipe } from './pipes/sanitize.pipe';
 
 
 
@@ -9,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
   declarations: [
     LogoComponent,
     FooterComponent,
+    SanitizePipe,
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   exports: [
     LogoComponent,
-    FooterComponent
+    FooterComponent,
+    SanitizePipe
   ]
 })
 export class SharedModule { }

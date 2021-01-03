@@ -18,3 +18,67 @@
     top: 2px;
     left: 30px;
 }
+
+.how-to-apply{
+    margin-top: 2.1rem;
+}
+
+.how-to-apply span{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 21px;
+    text-transform: uppercase;
+    color: #B9BDCF;
+}
+
+.how-to-apply .apply-container{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 21px;
+    margin-top: 1rem;
+    color: #334680;
+    width: 100%;
+}
+
+.information-job{
+    margin-top: 2rem;
+    color: #334680;
+    position: relative;
+}
+
+.information-job h4{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 28px;
+}
+
+.information-job .type{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 0.75rem;
+    line-height: 14px;
+    border: 1px solid #334680;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 0.3rem;
+}
+
+.information-job .created_at-container{
+    padding-top: 1.3rem;
+    color: #B7BCCE;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 14px;
+}
+
+.created_at-container .created_at{
+    position: absolute;
+    top: 146px;
+    left: 28px;
+}

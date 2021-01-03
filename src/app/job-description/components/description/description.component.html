@@ -10,5 +10,23 @@
 </div>
 
 <div *ngIf="(job$ | async) as job">
-    {{ job.title }}
+    <section class="how-to-apply">
+        <span>how to apply</span>
+        <div class="apply-container" [innerHTML]="job.how_to_apply | sanitize">
+        </div>
+    </section>
+
+    <section class="information-job">
+        <h4>{{ job.title }}</h4>
+        <span class="type" *ngIf="job.type == 'Full Time'">
+            {{ job.type }}
+        </span>
+        
+        <div class="created_at-container">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">query_builder</mat-icon>
+            <span class="created_at">
+                {{ job.created_at | timeago}}
+            </span>
+        </div>
+    </section>
 </div>
