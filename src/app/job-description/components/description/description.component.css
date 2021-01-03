@@ -47,7 +47,6 @@
 .information-job{
     margin-top: 2rem;
     color: #334680;
-    position: relative;
 }
 
 .information-job h4{
@@ -69,7 +68,8 @@
 }
 
 .information-job .created_at-container{
-    padding-top: 1.3rem;
+    position: relative;
+    padding-top: 1rem;
     color: #B7BCCE;
     font-style: normal;
     font-weight: 500;
@@ -79,6 +79,56 @@
 
 .created_at-container .created_at{
     position: absolute;
-    top: 146px;
+    top: 21px;
     left: 28px;
+}
+
+.company-info{
+    display: flex;
+    margin-top: 3rem;
+}
+
+.company-info .logo{
+    width: 35%;
+}
+
+.company-info .logo img{
+    width: 100%;
+}
+
+.name-and-location{
+    margin-left: 1rem;
+}
+
+.name-and-location h5{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.125rem;
+    line-height: 21px;
+    color: #334680;
+}
+
+.location-container{
+    position: relative;
+    width: 200px;
+    color: #B9BDCF;
+}
+
+.location-container .location{
+    position: absolute;
+    left: 30px;
+    top: 4.5px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.8rem;
+    line-height: 14px;
+}
+
+.job-description{
+    margin-top: 2rem;
+    color: #334680;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 150%;
 }

@@ -23,10 +23,29 @@
         </span>
         
         <div class="created_at-container">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">query_builder</mat-icon>
+            <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">query_builder</mat-icon>
             <span class="created_at">
                 {{ job.created_at | timeago}}
             </span>
         </div>
     </section>
+
+    <section class="company-info">
+        <div class="logo">
+            <img *ngIf="job.company_logo" [src]="job.company_logo" alt="Logo de la compañía">
+            <img *ngIf="!job.company_logo" src="../../../../assets/images/image-not-found.jpg" alt="Logo no encontrado">
+        </div>
+        <div class="name-and-location">
+            <h5>{{ job.company }}</h5>
+            <div class="location-container">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">public</mat-icon>
+                <span class="location">
+                    {{ job.location }}
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="job-description" [innerHTML]="job.description | sanitize"></section>
+
 </div>
