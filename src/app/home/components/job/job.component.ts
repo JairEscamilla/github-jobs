@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Job } from 'src/app/models/job.model';
 
 @Component({
@@ -10,9 +11,15 @@ export class JobComponent implements OnInit {
 
   @Input() job: Job;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  redirectToDescription(){
+    this.router.navigate([`/description/${this.job.id}`]);
   }
 
 }

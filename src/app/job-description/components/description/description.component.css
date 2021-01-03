@@ -1,0 +1,20 @@
+.link-container{
+    position: relative;
+    margin-top: 1rem;
+}
+
+.link-container a:link, .link-container a:visited, .link-container a:active{
+    text-decoration: none;
+    color: #1E86FF;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.8rem;
+    line-height: 21px;
+}
+
+.link-container a span{
+    position: absolute;
+    top: 2px;
+    left: 30px;
+}

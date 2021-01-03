@@ -47,6 +47,10 @@ export class JobsService {
     );
   }
 
+  getJob(id: string){
+    return this.http.get<Job>(`https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions/${id}.json`);
+  }
+
 
   setJobs(jobs: Job[]){
     this.jobs = jobs;

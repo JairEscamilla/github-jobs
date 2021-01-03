@@ -1,0 +1,14 @@
+<app-logo></app-logo>
+
+<div class="link-container">
+    <a routerLink="/">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_backspace</mat-icon>
+        <span>
+            Back to search
+        </span>
+    </a>
+</div>
+
+<div *ngIf="(job$ | async) as job">
+    {{ job.title }}
+</div>
