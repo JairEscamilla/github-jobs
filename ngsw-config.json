@@ -26,5 +26,19 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "api",
+      "urls": [
+        "https://cors-anywhere.herokuapp.com/https://jobs.github.com/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 30,
+        "maxAge": "5m",
+        "strategy":"freshness",
+        "timeout": "2s"
+      }
+    }
   ]
 }

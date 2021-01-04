@@ -5,6 +5,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -15,14 +16,16 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCheckboxModule,
     MatRadioModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonModule
   ],
   exports: [
     MatIconModule,
     MatCheckboxModule,
     MatRadioModule,
     MatProgressSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonModule
   ]
 })
 export class MaterialModule { }

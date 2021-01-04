@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LogoComponent } from './components/logo/logo.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SanitizePipe } from './pipes/sanitize.pipe';
+import { MaterialModule } from '../material/material.module';
 
 
 
@@ -14,7 +15,7 @@ import { SanitizePipe } from './pipes/sanitize.pipe';
   ],
   imports: [
     CommonModule,
-    
+    MaterialModule
   ],
   exports: [
     LogoComponent,
