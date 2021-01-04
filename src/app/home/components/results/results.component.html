@@ -1,47 +1,46 @@
-<section class="fullTime-container">
-    <mat-checkbox 
-        class="example-margin" 
-        [(ngModel)]="fullTime" 
-        (ngModelChange)="handleLocationChanges()"
-        color="primary"
-    >
-        Full time
-    </mat-checkbox>
-</section>
+<div class="container">
+    <div class="fields">
+        <section class="fullTime-container">
+            <mat-checkbox class="example-margin" [(ngModel)]="fullTime" (ngModelChange)="handleLocationChanges()"
+                color="primary">
+                Full time
+            </mat-checkbox>
+        </section>
+        
+        <section class="location-container">
+            <h3>location</h3>
+            <mat-icon aria-hidden="false" aria-label="Example home icon" class="public-icon">public</mat-icon>
+            <input type="text" placeholder="City, state, zip code or country" [(ngModel)]="locationModel"
+                (ngModelChange)="handleLocationChanges()">
+        </section>
+        
+        <section class="cities-container">
+            <mat-radio-group color="primary" [(ngModel)]="city" (ngModelChange)="filterByCity()">
+                <mat-radio-button class="cities" value="london">London</mat-radio-button>
+                <mat-radio-button class="cities" value="amsterdam">Amsterdam</mat-radio-button>
+                <mat-radio-button class="cities" value="new york">New York</mat-radio-button>
+                <mat-radio-button class="cities" value="berlin">Berlín</mat-radio-button>
+            </mat-radio-group>
+        </section>
+    </div>
 
-<section class="location-container">
-    <h3>location</h3>
-    <mat-icon aria-hidden="false" aria-label="Example home icon" class="public-icon">public</mat-icon>
-    <input type="text" placeholder="City, state, zip code or country" [(ngModel)]="locationModel" (ngModelChange)="handleLocationChanges()">  
-</section>
+    <div class="results">
+        <section class="loader-container" *ngIf="loading">
+            <mat-spinner></mat-spinner>
+        </section>
+        
+        <section class="jobs-container" *ngIf="!loading">
+            <h3 *ngIf="currentPageJobs.length == 0">
+                No results found):
+            </h3>
+            <app-job *ngFor="let job of currentPageJobs" [job]="job"></app-job>
+        </section>
+        
+        <section class="paginator">
+            <mat-paginator #paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+                (page)="pageEvent = pageChange($event)">
+            </mat-paginator>
+        </section>
+    </div>
+</div>
 
-<section class="cities-container">
-    <mat-radio-group color="primary" [(ngModel)]="city" (ngModelChange)="filterByCity()">
-        <mat-radio-button class="cities" value="london">London</mat-radio-button>
-        <mat-radio-button class="cities" value="amsterdam">Amsterdam</mat-radio-button>
-        <mat-radio-button class="cities" value="new york">New York</mat-radio-button>
-        <mat-radio-button class="cities" value="berlin">Berlín</mat-radio-button>
-    </mat-radio-group>
-</section>
-
-<section class="loader-container" *ngIf="loading">
-    <mat-spinner></mat-spinner>
-</section>
-
-<section class="jobs-container" *ngIf="!loading">
-    <h3 *ngIf="currentPageJobs.length == 0">
-        No results found):
-    </h3>
-    <app-job *ngFor="let job of currentPageJobs" [job]="job"></app-job>
-</section>
-
-<section class="paginator">
-    <mat-paginator
-        #paginator 
-        [length]="length" 
-        [pageSize]="pageSize" 
-        [pageSizeOptions]="pageSizeOptions"
-        (page)="pageEvent = pageChange($event)"
-    >
-    </mat-paginator>
-</section>
