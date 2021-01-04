@@ -89,11 +89,14 @@
 }
 
 .company-info .logo{
-    width: 35%;
+    /* width: 20%; */
 }
 
 .company-info .logo img{
-    width: 100%;
+    /* width: 100%; */
+    max-width: 150px;
+    min-width: 70px;
+    border-radius: 4px;
 }
 
 .name-and-location{
@@ -137,4 +140,44 @@
     display: flex;
     justify-content: center;
     margin-top: 4rem;
+}
+
+@media screen and (min-width: 700px){
+    .container{
+        display: flex;
+    }
+
+    .title-and-type h4{
+        display: inline-block;
+        margin-right: 1rem;
+    }
+
+    .created_at-container{
+        margin-top: -8px;
+    }
+
+    .title-and-type span{
+        position: relative;
+        top: -5px;
+    }
+
+    .left{
+        width: 30%;
+        margin-right: 2rem;
+        overflow-x: hidden;
+    }
+
+    .right{
+        width: 60%;
+        margin-top: -20px;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .left{
+        width: 20%;
+    }
+    .right{
+        width: 70%;
+    }
 }

@@ -1,5 +1,5 @@
 .card{
-    width: 85%;
+    width: 100%;
     background-color: white;
     padding: 1.5em;
     display: flex;
@@ -7,6 +7,7 @@
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     color: #334680;
+    box-sizing: border-box;
 }
 
 // .crop-image{
@@ -90,4 +91,49 @@
 
 .location-and-created-at .created_at{
   margin-top: 5px;
+}
+
+@media screen and (min-width: 500px){
+  .location-and-created-at .location{
+    margin-right: 1rem;
+  }
+
+  .crop-image{
+    width: 150px;
+  }
+
+  .crop-image img{
+    width: 150px;
+    height: 150px;
+  }
+
+  .info-container{
+    margin-left: 2rem;
+  }
+}
+
+@media screen and (min-width: 800px){
+  .info-container .company{
+    font-size: 1rem;
+  }
+  .info-container .title{
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 850px){
+  
+  .info-container{
+    position: relative;
+  }
+
+  .location-and-created-at{
+    display: flex;
+
+  }
+
+  .location-and-created-at .created_at{
+    margin-top: 0;
+  }
+
 }

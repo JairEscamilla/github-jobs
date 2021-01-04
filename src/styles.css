@@ -7,4 +7,12 @@ body {
     padding: 0.8rem;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-color: #F6F7FB;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 700px){
+    body{
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
 }
