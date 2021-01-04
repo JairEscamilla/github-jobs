@@ -93,6 +93,14 @@
     margin-top: 2rem;
 }
 
+.job-container{
+    cursor: pointer;
+}
+
+.paginator{
+    margin-top: 2rem;
+}
+
 @media screen and (min-width: 850px){
     .container{
         display: flex;

@@ -93,7 +93,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.sliceJobs(pageEvent.pageIndex, pageEvent.pageSize);
     window.scroll({
-      top: 550,
+      top: 200,
       left: 0,
       behavior: 'smooth',
     });

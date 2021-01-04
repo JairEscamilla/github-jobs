@@ -92,3 +92,48 @@
 .location-and-created-at .created_at{
   margin-top: 5px;
 }
+
+@media screen and (min-width: 500px){
+  .location-and-created-at .location{
+    margin-right: 1rem;
+  }
+
+  .crop-image{
+    width: 150px;
+  }
+
+  .crop-image img{
+    width: 150px;
+    height: 150px;
+  }
+
+  .info-container{
+    margin-left: 2rem;
+  }
+}
+
+@media screen and (min-width: 800px){
+  .info-container .company{
+    font-size: 1rem;
+  }
+  .info-container .title{
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 850px){
+  
+  .info-container{
+    position: relative;
+  }
+
+  .location-and-created-at{
+    display: flex;
+
+  }
+
+  .location-and-created-at .created_at{
+    margin-top: 0;
+  }
+
+}
