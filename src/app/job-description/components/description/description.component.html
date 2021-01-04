@@ -1,57 +1,71 @@
 <app-logo></app-logo>
 
-<div class="link-container">
-    <a routerLink="/">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_backspace</mat-icon>
-        <span>
-            Back to search
-        </span>
-    </a>
-</div>
-
-<div class="spinner-container" *ngIf="loading">
-    <mat-spinner></mat-spinner>
-</div>
-
-<div *ngIf="!loading">
-    <section class="how-to-apply">
-        <span>how to apply</span>
-        <div class="apply-container" [innerHTML]="job.how_to_apply | sanitize">
-        </div>
-    </section>
-
-    <section class="information-job">
-        <h4>{{ job.title }}</h4>
-        <span class="type" *ngIf="job.type == 'Full Time'">
-            {{ job.type }}
-        </span>
-        
-        <div class="created_at-container">
-            <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">query_builder</mat-icon>
-            <span class="created_at">
-                {{ job.created_at | timeago}}
-            </span>
-        </div>
-    </section>
-
-    <section class="company-info">
-        <div class="logo">
-            <img *ngIf="job.company_logo" [src]="job.company_logo" alt="Logo de la compañía">
-            <img *ngIf="!job.company_logo" src="../../../../assets/images/image-not-found.jpg" alt="Logo no encontrado">
-        </div>
-        <div class="name-and-location">
-            <h5>{{ job.company }}</h5>
-            <div class="location-container">
-                <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">public</mat-icon>
-                <span class="location">
-                    {{ job.location }}
+<div class="container">
+    <div class="left">
+        <div class="link-container">
+            <a routerLink="/">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">keyboard_backspace</mat-icon>
+                <span>
+                    Back to search
                 </span>
-            </div>
+            </a>
         </div>
-    </section>
+        
+        
+        <section class="how-to-apply" *ngIf="!loading">
+            <span>how to apply</span>
+            <div class="apply-container" [innerHTML]="job.how_to_apply | sanitize">
+            </div>
+        </section>
+    </div>
 
-    <section class="job-description" [innerHTML]="job.description | sanitize"></section>
+    <div class="right">
+        <div class="spinner-container" *ngIf="loading">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div *ngIf="!loading">
+        
+        
+            <section class="information-job">
+                <div class="title-and-type">
+                    <h4>{{ job.title }}</h4>
+                    <span class="type" *ngIf="job.type == 'Full Time'">
+                        {{ job.type }}
+                    </span>
+                </div>
+        
+                <div class="created_at-container">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">query_builder</mat-icon>
+                    <span class="created_at">
+                        {{ job.created_at | timeago}}
+                    </span>
+                </div>
+            </section>
+        
+            <section class="company-info">
+                <div class="logo">
+                    <img *ngIf="job.company_logo" [src]="job.company_logo" alt="Logo de la compañía">
+                    <img *ngIf="!job.company_logo" src="../../../../assets/images/image-not-found.jpg" alt="Logo no encontrado">
+                </div>
+                <div class="name-and-location">
+                    <h5>{{ job.company }}</h5>
+                    <div class="location-container">
+                        <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">public</mat-icon>
+                        <span class="location">
+                            {{ job.location }}
+                        </span>
+                    </div>
+                </div>
+            </section>
+        
+            <section class="job-description" [innerHTML]="job.description | sanitize"></section>
+        
+        </div>
 
+    </div>
 </div>
+
+
+
 
 <app-footer></app-footer>
