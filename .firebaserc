@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "github-jobs-96166"
+  },
+  "targets": {
+    "github-jobs-96166": {
+      "hosting": {
+        "github-jobs": [
+          "github-jobs-96166"
+        ]
+      }
+    }
   }
 }
