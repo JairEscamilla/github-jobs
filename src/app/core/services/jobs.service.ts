@@ -2,8 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Job } from 'src/app/models/job.model';
 import { environment } from 'src/environments/environment';
-import { catchError } from 'rxjs/operators';
 import { BehaviorSubject, throwError } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -41,14 +42,24 @@ export class JobsService {
 
   requestServer(url: string){
     this.loadingObs.next(true);
-    this.http.get<Job[]>(url).subscribe(
+    this.http.get<Job[]>(url)
+    .pipe(
+      retry(3)
+    )
+    .subscribe(
       (response) => this.setJobs(response),
       (error) => this.handleError(error)
     );
   }
 
   getJob(id: string){
-    return this.http.get<Job>(`https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions/${id}.json`);
+    return this.http.get<Job>(`https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions/${id}.json`).pipe(
+      retry(3),
+      catchError(error => {
+        this.handleError(error);
+        return throwError(error);
+      })
+    );
   }
 
 
@@ -59,6 +70,7 @@ export class JobsService {
   }
 
   handleError(error: any){
+    this.loadingObs.next(false);
     console.log("Something went wrong):");
     console.log(error);
   }
