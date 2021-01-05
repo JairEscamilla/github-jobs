@@ -3,8 +3,8 @@
     height: 138px;
     min-width: 280px;
     margin-top: 2rem;
-    background-color: red;
-    background-image: url('../../../../assets/images/buildings.jpg');
+    /* background-image: url('../../../../assets/images/buildings.jpg'); */
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX0ynNGTr1gQxYmjKVx9kK6S2aAsON4xvl6w&usqp=CAU");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
