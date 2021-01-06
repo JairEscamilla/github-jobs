@@ -4,7 +4,8 @@ import { JobsService } from '../../../core/services/jobs.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Observable, Subscription } from 'rxjs';
 import { environment } from '../../../../environments/environment.prod';
-
+import { FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs/operators';
 
 
 @Component({
@@ -41,6 +42,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
   // MatPaginator Output
   pageEvent: PageEvent;
+  searchField = new FormControl();
 
   constructor(
     private jobsService: JobsService
@@ -48,6 +50,13 @@ export class ResultsComponent implements OnInit, OnDestroy {
     this.loading$ = this.jobsService.loadingObs$;
     this.jobs$ = this.jobsService.jobsObs$;
     this.jobsService.requestServer(environment.api);
+    this.searchField.valueChanges.pipe(
+      debounceTime(300)
+    )
+    .subscribe(value => {
+      this.locationModel = value;
+      this.handleLocationChanges();
+    })
   }
 
   ngOnInit(): void {

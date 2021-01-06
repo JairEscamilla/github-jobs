@@ -1,7 +1,10 @@
 <div class="container">
     <div class="fields">
         <section class="fullTime-container">
-            <mat-checkbox class="example-margin" [(ngModel)]="fullTime" (ngModelChange)="handleLocationChanges()"
+            <mat-checkbox 
+                class="example-margin" 
+                [(ngModel)]="fullTime" 
+                (ngModelChange)="handleLocationChanges()"
                 color="primary">
                 Full time
             </mat-checkbox>
@@ -10,8 +13,11 @@
         <section class="location-container">
             <h3>location</h3>
             <mat-icon aria-hidden="false" aria-label="Example home icon" class="public-icon">public</mat-icon>
-            <input type="text" placeholder="City, state, zip code or country" [(ngModel)]="locationModel"
-                (ngModelChange)="handleLocationChanges()">
+            <input 
+                type="text" 
+                placeholder="City, state, zip code or country" 
+                [formControl]="searchField"
+            >
         </section>
         
         <section class="cities-container">
