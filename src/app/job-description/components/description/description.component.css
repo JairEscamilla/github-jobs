@@ -21,6 +21,7 @@
 
 .how-to-apply{
     margin-top: 2.1rem;
+    box-sizing: border-box;
 }
 
 .how-to-apply span{
@@ -31,6 +32,11 @@
     line-height: 21px;
     text-transform: uppercase;
     color: #B9BDCF;
+}
+
+.how-to-apply .apply-container{
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .how-to-apply .apply-container{
@@ -86,16 +92,16 @@
 .company-info{
     display: flex;
     margin-top: 3rem;
+    box-sizing: border-box;
+    width: 100%;
 }
 
-.company-info .logo{
-    /* width: 20%; */
-}
+/* .company-info .logo{
+    /* width: 20%; 
+} */
 
 .company-info .logo img{
-    /* width: 100%; */
-    max-width: 150px;
-    min-width: 70px;
+    width: 90px;
     border-radius: 4px;
 }
 
@@ -134,6 +140,11 @@
     font-weight: normal;
     font-size: 1rem;
     line-height: 150%;
+    box-sizing: border-box;
+    text-align: justify;
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 .spinner-container{
